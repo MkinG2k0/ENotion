@@ -1,7 +1,7 @@
 import { SideBar } from 'entities/layout/ui/SideBar'
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from 'shared/ui/resizable'
 
-const defaultSize = Number(localStorage.getItem('sidebarWidth'))
+const defaultSize = Number(localStorage.getItem('sidebarWidth')) || 20
 
 export const Layout: FC = ({children}) => {
 

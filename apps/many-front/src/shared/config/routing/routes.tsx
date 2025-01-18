@@ -6,17 +6,17 @@ import { Test } from 'shared/config/routing/test'
 const Main = lazy(() => import('pages/main'))
 const Auth = lazy(() => import('pages/auth'))
 
-export const router = createBrowserRouter([
+export const router: any = createBrowserRouter([
 	{
-		element: <Main />,
+		element: <Main/>,
 		path: '/',
 	},
 	{
-		element: <Auth />,
+		element: <Auth/>,
 		path: '/auth',
 	},
 	{
-		element: <Test />,
+		element: <Test/>,
 		path: '/test',
 	},
 ])

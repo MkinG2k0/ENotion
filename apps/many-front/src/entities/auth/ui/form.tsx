@@ -1,4 +1,5 @@
-import { HTMLAttributes, SyntheticEvent, useState } from 'react'
+import { useState } from 'react'
+import type { HTMLAttributes, SyntheticEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { authService } from 'entities/auth/model'
@@ -9,9 +10,10 @@ import { Button, cn } from 'shared'
 
 import { route } from 'core/providers/with-router/config'
 
-interface UserAuthFormProps extends HTMLAttributes<HTMLDivElement> {}
+interface UserAuthFormProps extends HTMLAttributes<HTMLDivElement> {
+}
 
-export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
+export function UserAuthForm({className, ...props}: UserAuthFormProps) {
 	const [isLoading, setIsLoading] = useState<boolean>(false)
 	const navigate = useNavigate()
 
@@ -20,7 +22,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
 		setIsLoading(true)
 
 		setTimeout(() => {
-			authService.login({ email: 'email', password: 'password', token: 'token' }).then((value) => {
+			authService.login({email: 'email', password: 'password', token: 'token'}).then((value) => {
 				navigate(route.main())
 			})
 			setIsLoading(false)
@@ -67,7 +69,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
 			</form>
 			<div className={'relative'}>
 				<div className={'absolute inset-0 flex items-center'}>
-					<span className={'w-full border-t'} />
+					<span className={'w-full border-t'}/>
 				</div>
 			</div>
 		</div>

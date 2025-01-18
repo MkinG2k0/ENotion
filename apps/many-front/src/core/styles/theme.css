@@ -1,0 +1,138 @@
+@layer base {
+		:root {
+				--radius: 0.5rem;
+		}
+
+		.light {
+				--text: #424242;
+
+				--background: #fdf7fd;
+				--foreground: var(--text);
+
+				--muted: var(--background);
+				--muted-foreground: var(--text);
+
+				--popover: var(--background);
+				--popover-foreground: var(--text);
+
+				--card: var(--background);
+				--card-foreground: var(--text);
+
+				--border: var(--text);
+				--input: var(--text);
+
+				--primary: #4eb848;
+				--primary-foreground: var(--text);
+
+				--secondary: #baedeb;
+				--secondary-foreground: var(--text);
+
+				--accent: #33ae2d;
+				--accent-foreground: var(--text);
+
+				--destructive: var(--background);
+				--destructive-foreground: var(--text);
+
+				--ring: var(--text);
+
+				--radius: 0.5rem;
+
+				--novel-highlight-default: #ffffff;
+				--novel-highlight-purple: #f6f3f8;
+				--novel-highlight-red: #fdebeb;
+				--novel-highlight-yellow: #fbf4a2;
+				--novel-highlight-blue: #c1ecf9;
+				--novel-highlight-green: #acf79f;
+				--novel-highlight-orange: #faebdd;
+				--novel-highlight-pink: #faf1f5;
+				--novel-highlight-gray: #f1f1ef;
+		}
+
+		.dark {
+				--text: #ffffff;
+
+				--background: black;
+				--foreground: var(--text);
+
+				--muted: #ccc;
+				--muted-foreground: #a7a7a7;
+
+				--popover: var(--background);
+				--popover-foreground: var(--text);
+
+				--card: var(--background);
+				--card-foreground: var(--text);
+
+				--border: var(--accent);
+				--input: var(--accent);
+
+				--primary: var(--text);
+				--primary-foreground: var(--background);
+
+				--secondary: var(--accent);
+				--secondary-foreground: var(--text);
+
+				--accent: #252527;
+				--accent-foreground: var(--text);
+
+				--destructive: var(--background);
+				--destructive-foreground: var(--text);
+
+				--ring: var(--accent);
+
+				--novel-highlight-default: #000000;
+				--novel-highlight-purple: #3f2c4b;
+				--novel-highlight-red: #5c1a1a;
+				--novel-highlight-yellow: #5c4b1a;
+				--novel-highlight-blue: #1a3d5c;
+				--novel-highlight-green: #1a5c20;
+				--novel-highlight-orange: #5c3a1a;
+				--novel-highlight-pink: #5c1a3a;
+				--novel-highlight-gray: #3a3a3a;
+
+		}
+
+		.green {
+				--text: #ffffff;
+
+				--background: #0c1f22;
+				--foreground: var(--text);
+
+				--muted: var(--secondary);
+				--muted-foreground: #929292;
+
+				--popover: var(--background);
+				--popover-foreground: var(--text);
+
+				--card: var(--background);
+				--card-foreground: var(--text);
+
+				--border: var(--secondary);
+				--input: var(--secondary);
+
+				--primary: #db9e95;
+				--primary-foreground: var(--text);
+
+				--secondary: #143439;
+				--secondary-foreground: var(--text);
+
+				--accent: #c46354;
+				--accent-foreground: var(--text);
+
+				--destructive: var(--background);
+				--destructive-foreground: var(--text);
+
+				--ring: var(--text);
+		}
+}
+
+@layer base {
+		* {
+				@apply border-border;
+		}
+
+		body {
+				@apply bg-background text-foreground;
+		}
+}
+

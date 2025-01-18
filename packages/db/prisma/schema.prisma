@@ -1,0 +1,124 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./client"
+}
+
+datasource db {
+	provider  = "postgresql"
+	url       = env("DATABASE_URL")
+	directUrl = env("DIRECT_URL")
+}
+
+model Users {
+	id            Int      @id @default(autoincrement())
+	name          String   @unique
+	email         String   @unique
+	phone         String?
+	password      String
+	refresh_token String?
+	profile_id    Int?     @unique
+	created_at    DateTime @default(now())
+	updated_at    DateTime @updatedAt
+	isSubscribe   Boolean?
+	isDeleted     Boolean?
+	Profile       Profile? @relation(fields: [profile_id], references: [id])
+}
+
+model Profile {
+	id         Int        @id @default(autoincrement())
+	name       String
+	users      Users?
+	Balances   Balance[]
+	Categories Category[]
+	Income     Income[]
+}
+
+model Balance {
+	id           Int            @id
+	name         String
+	remainder    BigInt
+	profile      Profile        @relation(fields: [profile_id], references: [id])
+	profile_id   Int            @unique
+	BalanceItems BalanceItems[]
+	IncomeItems  IncomeItems[]
+}
+
+model Category {
+	id           Int            @id
+	name         String
+	plan         Int
+	profile      Profile        @relation(fields: [profile_id], references: [id])
+	profile_id   Int            @unique
+	BalanceItems BalanceItems[]
+}
+
+model BalanceItems {
+	id                Int         @id
+	count             Int
+	comment           String?
+	price             Int
+	created_at        DateTime
+	category_id       Int
+	category          Category    @relation(fields: [category_id], references: [id])
+	balance           Balance     @relation(fields: [balance_id], references: [id])
+	incomeItems       IncomeItems @relation(fields: [income_balance_id], references: [id])
+	balance_id        Int
+	income_balance_id Int
+}
+
+model IncomeItems {
+	id           Int            @id
+	price        Int
+	comment      String?
+	created_at   DateTime
+	income       Income         @relation(fields: [income_id], references: [id])
+	income_id    Int
+	balance      Balance        @relation(fields: [balance_id], references: [id])
+	balance_id   Int
+	BalanceItems BalanceItems[]
+}
+
+model Income {
+	id          Int           @id
+	name        String
+	profile     Profile       @relation(fields: [profile_id], references: [id])
+	profile_id  Int
+	IncomeItems IncomeItems[]
+=======
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  directUrl         = env("DIRECT_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+model User {
+  id       Int      @id @default(autoincrement())
+  email    String   @unique
+  name     String?
+  password String
+  posts    Post[]
+  comment  Comment?
+}
+
+model Post {
+  id        Int       @id @default(autoincrement())
+  title     String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  content   String?
+  published Boolean   @default(false)
+  author    User      @relation(fields: [authorId], references: [id])
+  authorId  Int
+  comments  Comment[]
+}
+
+model Comment {
+  id        Int      @id @default(autoincrement())
+  text      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  User      User     @relation(fields: [userId], references: [id])
+  userId    Int      @unique
+  Post      Post?    @relation(fields: [postId], references: [id])
+  postId    Int?
+}

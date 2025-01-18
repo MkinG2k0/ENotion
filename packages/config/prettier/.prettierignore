@@ -1,0 +1,9 @@
+.next
+.idea
+.yarn
+index.js
+build
+dist
+node_modules
+android
+web

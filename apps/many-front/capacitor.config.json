@@ -1,0 +1,19 @@
+{
+  "appId": "com.track.money.app",
+  "appName": "track money",
+  "webDir": "web",
+  "bundledWebRuntime": false,
+  "server": {
+  },
+  "plugins": {
+    "PushNotifications": {
+      "presentationOptions": [
+        "badge",
+        "sound",
+        "alert"
+      ]
+    }
+  }
+}
+
+

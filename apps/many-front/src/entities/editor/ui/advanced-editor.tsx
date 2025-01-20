@@ -65,7 +65,7 @@ const Editor = ({content, onUpdate}: EditorProps) => {
 	}, 500)
 
 	return (
-		<div className={'relative flex flex-auto overflow-auto bg-background rounded-lg border'}>
+		<div className={'relative flex flex-auto overflow-auto bg-background p-2'}>
 			<div className={'flex absolute right-5 top-5 z-10 mb-5 gap-2'}>
 				<div className={'rounded-lg bg-accent px-2 py-1 text-sm text-muted-foreground'}>
 					{saveStatus}
@@ -79,16 +79,15 @@ const Editor = ({content, onUpdate}: EditorProps) => {
 				</div>
 			</div>
 			<div className={'relative flex flex-auto overflow-auto bg-background rounded-lg border'}>
-
 				<EditorRoot>
 					<EditorContent
 						className={
-							'relative flex-auto'
+							'relative flex flex-auto root_content'
 						}
 						editorProps={{
 							attributes: {
 								class:
-									'prose prose-lg dark:prose-invert prose-headings:font-title font-default focus:outline-none max-w-full',
+									'prose-lg dark:prose-invert prose-headings:font-title font-default focus:outline-none w-full',
 							},
 							handleDOMEvents: {
 								keydown: (_view, event) => handleCommandNavigation(event),

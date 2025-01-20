@@ -20,6 +20,12 @@
 		overflow: hidden;
 }
 
+.root_content > div:first-child {
+		width: 100%; /* Растянуть на всю ширину */
+		flex-grow: 1; /* Занять доступное пространство в flex-контейнере */
+}
+
+
 input,
 textarea,
 button,

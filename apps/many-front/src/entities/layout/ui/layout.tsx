@@ -55,7 +55,7 @@ export const Layout: FC = observer(({children}) => {
 							<SideBar/>
 						</ResizablePanel>
 						<ResizableHandle/>
-						<ResizablePanel className={'flex-auto flex flex-col p-2 '}>
+						<ResizablePanel className={'flex-auto flex flex-col'}>
 							{children}
 						</ResizablePanel>
 					</ResizablePanelGroup>

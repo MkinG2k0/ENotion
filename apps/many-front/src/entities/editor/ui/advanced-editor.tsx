@@ -87,7 +87,7 @@ const Editor = ({content, onUpdate}: EditorProps) => {
 						editorProps={{
 							attributes: {
 								class:
-									'prose-lg dark:prose-invert prose-headings:font-title font-default focus:outline-none w-full',
+									'prose-lg dark:prose-invert prose-headings:font-title font-default focus:outline-none w-full h-full',
 							},
 							handleDOMEvents: {
 								keydown: (_view, event) => handleCommandNavigation(event),

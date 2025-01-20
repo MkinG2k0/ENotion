@@ -1,0 +1,30 @@
+{
+  "name": "ENotion",
+  "short_name": "EN",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#F4F4F4",
+  "theme_color": "#F4F4F4",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "./resources/icon_512-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "resources/screenshots/desktop-screenshot.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "resources/screenshots/mobile-screenshot.png",
+      "sizes": "720x1280",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ]
+}

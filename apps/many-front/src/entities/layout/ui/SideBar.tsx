@@ -2,26 +2,41 @@ import { DropdownMenu } from '@radix-ui/react-dropdown-menu'
 import { Content } from 'entities/content'
 import { ContentService } from 'entities/content/model'
 import { PageService } from 'entities/content/model/PageService'
+import { layout } from 'entities/layout'
 import { observer } from 'mobx-react-lite'
 import { type KeyboardEventHandler, useState } from 'react'
 import { Button, buttonVariants } from 'shared'
-import { Plus, Menu, Check, Pen, Trash } from 'lucide-react'
+import { Plus, Menu, Check, Pen, Trash, ChevronLeft, ChevronRight } from 'lucide-react'
 import { DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from 'shared/ui/dropdown-menu'
 import { Input } from 'shared/ui/input'
 
-export const SideBar = observer(() => {
-
+export const SideBar = observer(({isSideBar}: { isSideBar?: boolean }) => {
 	const onAddPage = () => {
 		const newPage = Content.addPage(`New page ${new Date().toISOString().slice(0, 10)}`)
 		Content.setCurrentPage(newPage)
 	}
 
-	return <div className={'flex p-3 flex-col gap-2 h-[100dvh]'}>
+	const collapse = () => {
+		layout.setCollapsed(!layout.collapsed)
+	}
+
+	return <div className={'flex p-3 flex-col gap-2'}>
 		<div className={'flex gap-2 items-center justify-between'}>
 			<div>Pages</div>
-			<Button variant={'secondary'} size={'icon'} onClick={onAddPage}>
-				<Plus size={20}/>
-			</Button>
+			<div className={'row-2'}>
+				{
+					isSideBar &&
+					<Button variant={'secondary'} size={'icon'} onClick={collapse}>
+						{
+							layout.collapsed ? <ChevronRight size={20}/> : <ChevronLeft size={20}/>
+						}
+					</Button>
+				}
+
+				<Button variant={'secondary'} size={'icon'} onClick={onAddPage}>
+					<Plus size={20}/>
+				</Button>
+			</div>
 		</div>
 		<div className={'flex flex-col gap-2 overflow-auto'}>
 			{
